@@ -1,0 +1,70 @@
+*, *::after , *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.crew-container {
+    background-image: url('../assets/crew/background-crew-desktop.jpg');
+}
+
+.crew-member-container {
+    width: 100%;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas:
+    "member-info member-image";
+}
+
+.member-info {
+    grid-area: member-info;
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 5rem;
+    color: white;
+}
+.member-info > h3 > span {
+    opacity: 0.6;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.info > h2:first-of-type {
+    opacity: 0.5;
+}
+.info > p {
+    font-size: large;
+}
+.member-image {
+    grid-area: member-image;
+    display: flex;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+.member-image > img {
+    width: 80%;
+    height: auto;
+}
+
+.navigate-crew {
+    display: flex;
+    gap: 2rem;
+    align-self: center;
+}
+.navigate-crew > li {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.6;
+    list-style: none;
+    cursor: pointer;
+}
+.navigate-crew > li.active {
+    opacity: 1;
+}
+

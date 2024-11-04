@@ -1,0 +1,118 @@
+*, *::after , *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.dest-container {
+    background-image: url('../assets/destination/background-destination-desktop.jpg');
+}
+
+.destionations {
+    height: 80vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-areas:
+    "destination-planet planet-details";
+}
+.destination-planet {
+    grid-area: destination-planet;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 2rem;
+    color: white;
+}
+.planet-details {
+    grid-area: planet-details;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    color: white;
+}
+.planet-details > .planet_list {
+    display: flex;
+    gap: 4rem;
+    list-style: none;
+    color: white;
+    font-size: larger;
+}
+.planet_listItem {
+    padding: 0.5rem;
+    transition: background-color 1s;
+    position: relative;
+    cursor: pointer;
+}
+.planet_listItem::before {
+    content: "";
+    width: 100%;
+    bottom: 0;
+    transform: scale(1);
+    transition: transform 0.5s, bottom 1s ;
+    left: 0;
+    position: absolute;
+    height: 2px;
+    background-color: rgba(255,255,255,0.5);
+}
+.planet_listItem:hover {
+    background-color:rgba(255,255,255,0.1);
+    backdrop-filter: blur(4rem);
+}
+.planet_listItem:hover::before{
+    bottom: 100%;
+    transform: scale(1);
+}
+
+.planet-details > P{
+    font-size: large;
+}
+.distance-travel-time {
+    display: flex;
+    gap: 4rem;
+}
+.distance, .travel-time {
+    text-transform: uppercase;
+}
+.distance > h4, .travel-time> h4 {
+    opacity: 0.6;
+}
+.destination-planet > img {
+    width: 50%;
+}
+
+@media (max-width: 900px) {
+    .planet-details > .planet_list {
+        gap: 3rem;
+    }
+}
+@media (max-width: 800px) {
+    .planet-details > .planet_list {
+        gap: 1.5rem;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .destionations {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas:
+        "destination-planet"  
+        "planet-details";
+    }
+    .dest-container {
+        background-image: url('../assets/destination/background-destination-mobile.jpg');
+        background-position: center;
+        background-size: cover;
+    }
+    .destination-planet {
+        grid-area: destination-planet;
+    }
+    .planet-details {
+        grid-area: planet-details;
+    }
+}
